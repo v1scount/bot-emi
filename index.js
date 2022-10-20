@@ -29,12 +29,13 @@ app.listen(port, () => {
         let newTweet = false;
     
         console.log('Client is ready!');
-        const warriorsCBA = await client.getChatById(
-            '5493874035411-1529594598@g.us'
-          );
         const sendMessage = async (tweet) => {
             await client.sendMessage('5493874035411-1529594598@g.us', tweet)
             console.log('mensaje enviado')
+        }
+
+        const sendControllMessage = async (response) => {
+            await client.sendMessage('120363028011665348@g.us', response)
         }
         
         const fetchLastEmiTweet = async () => { 
@@ -48,18 +49,22 @@ app.listen(port, () => {
                 if(response.status === 502) {
                     fetchLastEmiTweet();
                 } else if(response.status !== 200){
-                    console.log(reposne.statusText);
+                    console.log(response.statusText);
+                    sendControllMessage(`${response.statusText}: La conexión estuvo esperando por mucho tiempo`)
                     setTimeout(() => fetchLastEmiTweet(), 1000)
                 } else {
                     if(lastEmiTweet !== response.data.data[0]?.text) {
                         lastEmiTweet = response.data.data[0]?.text;
                         sendMessage(lastEmiTweet);
+                        sendControllMessage(`${response.statusText}: Mensaje enviado \n ${lastEmiTweet}`)
                     }
                     else if(lastEmiTweet === response.data.data[0]?.text) {
                         console.log('nada nuevo');
                         newTweet = false;
+                        sendControllMessage(`${resposne.statusText}: Ningún tweet nuevo`)
                     } else {
                         console.log('algo raro')
+                        sendControllMessage(`${resposne.statusText}: Comprueba el bot`)
                         newTweet = false;
                     }
                 }
@@ -70,7 +75,7 @@ app.listen(port, () => {
     
         setInterval(() => {
             fetchLastEmiTweet();
-        }, 2700000)
+        }, 300000)
     
     });
     
