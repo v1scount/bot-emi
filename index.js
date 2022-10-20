@@ -25,7 +25,7 @@ app.listen(port, () => {
     });
     
     client.on('ready', async () => {
-        let lastEmiTweet = '';
+        let lastEmiTweet = 'no dejen salir a sus gatos es todo una trampa para que se vayan de caravana 😢😭';
         let newTweet = false;
     
         console.log('Client is ready!');
