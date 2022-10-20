@@ -61,10 +61,10 @@ app.listen(port, () => {
                     else if(lastEmiTweet === response.data.data[0]?.text) {
                         console.log('nada nuevo');
                         newTweet = false;
-                        sendControllMessage(`${resposne.statusText}: Ningún tweet nuevo`)
+                        sendControllMessage(`${response.statusText}: Ningún tweet nuevo`)
                     } else {
                         console.log('algo raro')
-                        sendControllMessage(`${resposne.statusText}: Comprueba el bot`)
+                        sendControllMessage(`${response.statusText}: Comprueba el bot`)
                         newTweet = false;
                     }
                 }
