@@ -5,11 +5,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const client = new Client(
-//     {
-//     authStrategy: new LocalAuth()
-// }
-);
+const client = new Client();
 
 
 
@@ -48,8 +44,7 @@ client.on('ready', async () => {
             } else {
                 if(lastEmiTweet !== response.data.data[0]?.text) {
                     lastEmiTweet = response.data.data[0]?.text;
-                    // sendMessage(lastEmiTweet);
-                    console.log('SUCEDE')
+                    sendMessage(lastEmiTweet);
                 }
                 else if(lastEmiTweet === response.data.data[0]?.text) {
                     console.log('nada nuevo');
