@@ -65,7 +65,7 @@ client.on('ready', async () => {
 
     setInterval(() => {
         fetchLastEmiTweet();
-    }, 10800000)
+    }, 2700000)
 
 });
 
