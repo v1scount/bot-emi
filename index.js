@@ -17,7 +17,7 @@ app.listen(port, () => {
     
     
     client.on('qr', qr => { 
-        qrcode.generate(qr);
+        qrcode.generate(qr, {small: true});
     });
     
     client.on('ready', async () => {
