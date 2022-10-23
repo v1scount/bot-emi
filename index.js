@@ -1,20 +1,15 @@
 require('dotenv').config()
 const qrcode = require('qrcode-terminal');
 const express = require('express');
-const bodyParser = require('body-parser');
 const axios = require('axios');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const app = express()
 const port = process.env.PORT || 3030;
 
 app.listen(port, () => {
 
-    const { Client, LocalAuth } = require('whatsapp-web.js');
     const client = new Client();
-    
-    
-    
-    
     
     client.on('qr', qr => { 
         qrcode.generate(qr, {small: true});
