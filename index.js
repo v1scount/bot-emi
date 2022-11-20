@@ -21,7 +21,7 @@ app.listen(port, () => {
     });
     
     client.on('ready', async () => {
-        let lastEmiTweet = 'no dejen salir a sus gatos es todo una trampa para que se vayan de caravana 😢😭';
+        let lastEmiTweet = `Una vez +1\n🔵🟡🔵`;
         let newTweet = false;
     
         console.log('Client is ready!');
@@ -37,11 +37,12 @@ app.listen(port, () => {
         const fetchLastEmiTweet = async () => { 
             axios({
                 method: 'get',
-                url: 'https://api.twitter.com/2/tweets/search/recent?query=from:EmiRodriguezM',
+                url: 'https://api.twitter.com/2/users/817711994/tweets?exclude=replies%2Cretweets&max_results=5',
                 headers: {
                     Authorization: `Bearer ${process.env.BEARER_TOKEN_TWITTER}`
                 }
             }).then((response) => {
+                console.log('TWEETS', response.data)
                 if(response.status === 502) {
                     fetchLastEmiTweet();
                 } else if(response.status !== 200){
