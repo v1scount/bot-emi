@@ -21,7 +21,7 @@ app.listen(port, () => {
     });
     
     client.on('ready', async () => {
-        let lastEmiTweet = `Una vez +1\n🔵🟡🔵`;
+        let lastEmiTweet = `Mi novia tiene más ganas de vicear al cs que io 😅😅`;
         let newTweet = false;
     
         console.log('Client is ready!');
