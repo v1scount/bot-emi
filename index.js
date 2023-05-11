@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const addOAuthInterceptor = require('axios-oauth-1.0a');
+const QRCode = require('qrcode')
 
 const app = express()
 const port = process.env.PORT || 3030;
@@ -26,7 +27,9 @@ app.listen(port, () => {
     
     
     client.on('qr', qr => { 
-        qrcode.generate(qr);
+        QRCode.toString(qr,{type:'terminal', small: true}, function (err, url) {
+            console.log(url)
+          })
     });
     
     client.on('ready', async () => {
