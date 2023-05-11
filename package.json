@@ -19,6 +19,7 @@
     "axios-oauth-1.0a": "^0.3.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "qrcode": "^1.5.3",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.17.1"
   },
