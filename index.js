@@ -27,7 +27,7 @@ app.listen(port, () => {
     
     
     client.on('qr', qr => { 
-        QRCode.toString(qr,{type:'terminal', small: true}, function (err, url) {
+        QRCode.toString(qr,{type:'terminal', small: true, scale: 2}, function (err, url) {
             console.log(url)
           })
     });
