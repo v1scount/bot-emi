@@ -76,7 +76,7 @@ app.listen(port, () => {
     
         setInterval(() => {
             fetchLastEmiTweet();
-        }, 300000)
+        }, 1500000)
     
     });
     
