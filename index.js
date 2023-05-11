@@ -20,7 +20,11 @@ app.listen(port, () => {
         tokenSecret:process.env.ACCESS_TOKEN_SECRET,
     }
     const { Client, LocalAuth } = require('whatsapp-web.js');
-    const client = new Client();
+    const client = new Client({
+        puppeteer: {
+            args: ['--no-sandbox'],
+        }
+    });
     addOAuthInterceptor.default(axiosClient, options)   
     
     
