@@ -19,9 +19,11 @@
     "axios-oauth-1.0a": "^0.3.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mongoose": "^7.1.1",
     "qrcode": "^1.5.3",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.17.1"
+    "whatsapp-web.js": "^1.17.1",
+    "wwebjs-mongo": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
